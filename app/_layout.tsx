@@ -9,9 +9,11 @@ import { useCurrencyStore } from '../store/useCurrencyStore';
 import { useExpenseStore } from '../store/useExpenseStore';
 import { authService } from '../services/authService';
 import ErrorBoundary from '../components/ErrorBoundary';
-import LoadingScreen from '../components/LoadingScreen';
+import LoadingScreen from '../components/LoadingScreen'
+import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 
 export default function RootLayout() {
+  useFrameworkReady();
   const { theme, isHydrated: themeHydrated } = useThemeStore();
   const { isHydrated: currencyHydrated } = useCurrencyStore();
   const { setUser, setGuest, setLoading, isLoading } = useAuthStore();
